@@ -46,10 +46,11 @@ def SearchIndex(nums,target):
 
 		if target == nums[m]:
 			return m
-		if nums[m] < nums[r]:
-			if target <= nums[r] and target > nums[m]:
+		#每次nums[m]将array分成有序和无序的两端
+		if nums[m] < nums[r]:#nums[m]在后半段
+			if target <= nums[r] and target > nums[m]:#target在有序的一段中
 				l = m+1
-			else:
+			else:#target在无序的一段中
 				r = m-1
 
 		else:
