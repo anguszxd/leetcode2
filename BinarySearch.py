@@ -5,7 +5,7 @@
 def binarySearch(nums,target):
 	left, right = 0, len(nums)-1
 
-	while left < right:
+	while left <= right:
 		mid = (left + right) >> 1
 
 		if target > nums[mid]:
@@ -20,5 +20,5 @@ def binarySearch(nums,target):
 
 
 nums = [0,1,2,3,5,6,7,8]
-target = 9
+target = 8
 print binarySearch(nums,target)
