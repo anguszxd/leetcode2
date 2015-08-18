@@ -15,7 +15,7 @@
 def searchRange(nums,target):
 	l, r = 0, len(nums)-1
 
-	while l < r:
+	while l <= r:
 		m = (l+r)>>1
 		if nums[m] == target:
 			break
@@ -23,26 +23,29 @@ def searchRange(nums,target):
 			r = m-1
 		else:
 			l = m+1
-	print m
-	start = m-1
-	end = m+1
+			
+	if nums[m] != target:
+		return [-1,-1]
+	
+	start = m
+	end = m
 	while start != 0:
-		if nums[start] != target:
-			start += 1
+		if nums[start-1] == target:
+			start -= 1
+		else:
 			break
-		start -= 1
 
-	while end != len(nums):
-		if nums[end] != target:
-			end -= 1
+	while end != len(nums)-1:
+		if nums[end+1] == target:
+			end += 1
+		else:
 			break
-		end += 1
 
 	res = [start, end]
 
 	return res
 
 
-nums = [5,7,7,8,8,10]
-target = 8
+nums = [0,1,2,3,4,5,9]
+target = 1
 print searchRange(nums,target)
