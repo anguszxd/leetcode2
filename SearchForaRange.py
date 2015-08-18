@@ -23,7 +23,18 @@ def searchRange(nums,target):
 			r = m-1
 		else:
 			l = m+1
-	return m
+
+	res = [m, m]
+	while res[0] != 0:
+		if nums[res[0]] != target:
+			break
+		res[0] -= 1
+
+	while res[1] != len(nums)-1:
+		if nums[res[1]] != target:
+			break
+		res[1] += 1
+	return res
 
 
 nums = [5,7,7,8,8,10]
