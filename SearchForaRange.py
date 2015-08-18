@@ -10,8 +10,20 @@
 #Given [5, 7, 7, 8, 8, 10] and target value 8,
 #return [3, 4]
 
+#Solution：先用二分法找到一个target，再由这个位置出发向左右两端寻找第一个不是
+#target的位置
 def searchRange(nums,target):
+	l, r = 0, len(nums)-1
 
+	while l < r:
+		m = (l+r)>>1
+		if nums[m] == target:
+			break
+		if nums[m] > target:
+			r = m-1
+		else:
+			l = m+1
+	return m
 
 
 nums = [5,7,7,8,8,10]
