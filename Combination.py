@@ -23,5 +23,5 @@ def combination(res, path, n, sleft):
 	combination(res,path,n,sleft[1:])
 
 
-s = "abcd"
+s = "1234"
 combinationAll(s)
