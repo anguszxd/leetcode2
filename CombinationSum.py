@@ -70,11 +70,29 @@ def sort(subans):
 	return subans
 
 
+#Solution2:以上方法思路没有问题，但计算组合是没有必要的，可以使用溯回法退回，
+#回溯法：先对候选数字排序，不断找可能的组合，即组合的加和小于target，继续从小到大添加候选数字
+#直到遇到组合的加和等于target，将组合加入ans并返回
+#或者加和大于target，返回，这条路径后面的搜索也就不必要了
+
+def combinationSum2(s,t,path,ans,start):
+	if sum(path) == t:
+		#path = sort(path)
+		#if path not in ans: ans.append(path)
+		ans.append(path)
+		return False
+	if sum(path) > t:
+		return False
+
+	for i in range(start,len(s),1):
+		flag = combinationSum2(s,t,path+[s[i]],ans,i)
+		if not flag: break
+	return True
 
 can = [1,2,3,6,7]
 t = 7
 ans = []
-branch = []
+path = []
 #print combinationSum(can,t)
-combinationSum(can,t,ans,branch)
+combinationSum2(can,t,path,ans,0)
 print ans
