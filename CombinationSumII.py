@@ -5,6 +5,7 @@
 
 #Each number in C may only be used once in the combination.
 
+#Solution:使用溯回法
 def combinationSum(c,t,ans,path):
 	if sum(path) == t:
 		if path not in ans:
@@ -13,15 +14,15 @@ def combinationSum(c,t,ans,path):
 	if sum(path) > t:
 		return False
 
-	for i in range(1,len(c),1):
-		flag = combinationSum(c[i:],t,ans,path+[c[i-1]])
+	for i in range(0,len(c),1):
+		flag = combinationSum(c[i+1:],t,ans,path+[c[i]])
 		if not flag:
 			break
 
 	return True
 
 
-nums = [1,2]
+nums = [1]
 target = 1
 nums.sort()
 
