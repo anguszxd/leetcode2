@@ -21,6 +21,7 @@ def firstMissingPositive(nums):
 	i = 0
 	while i < len(nums):
 		if nums[i] > 0 and nums[i] != i+1 and nums[i] < len(nums) and nums[i] != nums[nums[i]-1]:
+			#注意这个交换，第三句不能是nums[nus[i]-1]=tmp，因为在第二句中已经改变了nums[i]的内容
 			tmp = nums[i]
 			nums[i] = nums[nums[i]-1]
 			nums[tmp-1] = tmp
