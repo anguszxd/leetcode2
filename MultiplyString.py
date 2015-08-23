@@ -7,9 +7,6 @@
 def multiply(num1,num2):
 	return str(int(num1)*int(num2))
 
-def multiply2(num1,num2):
-
-
 
 n1 = 14
 n2 = 23
