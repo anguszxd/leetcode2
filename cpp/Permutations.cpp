@@ -8,8 +8,8 @@ void dfs(vector<vector<int> > &ret, vector<int> &num,int cur);
 
 int main()
 {
-	int n[] = {1,2,3};
-	vector<int> v(n,n+3);
+	int n[] = {1,2,3,4};
+	vector<int> v(n,n+4);
 	vector<vector<int> > ans = permute(v);
 
 	for(int i=0; i<ans.size(); i++)
