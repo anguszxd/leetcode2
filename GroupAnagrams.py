@@ -28,16 +28,11 @@ def groupAnagrams(strs):
 			for j in range(1,len(ans[ind])+1,1):
 				if strs[i] < ans[ind][j-1]:
 					ans[ind].insert(j-1,strs[i])
-					print "insert here"
 					flag = False
 					break
 			if flag:
 				ans[ind].append(strs[i])
-		print ans
-
 	return ans
-
-
 
 
 def sort(array):
@@ -45,9 +40,16 @@ def sort(array):
 		for j in range(i):
 			if array[j] > array[j + 1]:
 				array[j], array[j + 1] = array[j + 1], array[j]
-
 	return array
 
-strs = ["",""]
-l = [6,5,4,3,2,1]
-print groupAnagrams(strs)
+
+def groupAnagrams2(strs):
+    dic = {}
+    for s in strs:
+        dic[tuple(sorted(s))] = dic.get(tuple(sorted(s)),[]) + [s]
+    res = []
+    [res.extend([sorted(item)]) for item in dic.values()]
+    return res
+
+strs = ["eat", "tea", "tan", "ate", "nat", "bat"]
+print groupAnagrams2(strs)
